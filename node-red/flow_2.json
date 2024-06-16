@@ -1,0 +1,164 @@
+[
+    {
+        "id": "9f179ffd6f26cf96",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "07f9f07825f960f1",
+        "type": "ui-slider",
+        "z": "9f179ffd6f26cf96",
+        "group": "890bfe373cc23ac1",
+        "name": "",
+        "label": "servo0",
+        "tooltip": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "payload",
+        "topicType": "msg",
+        "thumbLabel": true,
+        "min": 0,
+        "max": "180",
+        "step": 1,
+        "className": "",
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [
+                "8f676d86ef6ce686"
+            ]
+        ]
+    },
+    {
+        "id": "626e590f50f0b559",
+        "type": "serial out",
+        "z": "9f179ffd6f26cf96",
+        "name": "",
+        "serial": "170e0dbf6fa5014f",
+        "x": 650,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8f676d86ef6ce686",
+        "type": "template",
+        "z": "9f179ffd6f26cf96",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload}};0",
+        "output": "str",
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "ea5001ddd72217c6",
+                "626e590f50f0b559"
+            ]
+        ]
+    },
+    {
+        "id": "ea5001ddd72217c6",
+        "type": "debug",
+        "z": "9f179ffd6f26cf96",
+        "name": "temp_cmd",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "890bfe373cc23ac1",
+        "type": "ui-group",
+        "name": "My Group",
+        "page": "76ced207c9d0520b",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "170e0dbf6fa5014f",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "76ced207c9d0520b",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "94c98d65bd2c1dd2",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "50dc553d689fef43",
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "94c98d65bd2c1dd2",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "50dc553d689fef43",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]

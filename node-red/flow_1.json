@@ -1,0 +1,123 @@
+[
+    {
+        "id": "60eb44cca6c6b7ab",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5dd23565e1e4f829",
+        "type": "serial in",
+        "z": "60eb44cca6c6b7ab",
+        "name": "",
+        "serial": "170e0dbf6fa5014f",
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "974186fd04fd9994"
+            ]
+        ]
+    },
+    {
+        "id": "974186fd04fd9994",
+        "type": "debug",
+        "z": "60eb44cca6c6b7ab",
+        "name": "Serial monitor",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a2662a8508d0755a",
+        "type": "serial control",
+        "z": "60eb44cca6c6b7ab",
+        "name": "",
+        "serial": "170e0dbf6fa5014f",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ecb3d45426be1a36",
+        "type": "inject",
+        "z": "60eb44cca6c6b7ab",
+        "name": "soros leállítás",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"serialport\":\"COM4\",\"serialbaud\":9600,\"databits\":8,\"parity\":\"none\",\"stopbits\":1,\"enabled\":false}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "a2662a8508d0755a"
+            ]
+        ]
+    },
+    {
+        "id": "c198a01d0385e2ab",
+        "type": "inject",
+        "z": "60eb44cca6c6b7ab",
+        "name": "soros indítás",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"serialport\":\"COM4\",\"serialbaud\":9600,\"databits\":8,\"parity\":\"none\",\"stopbits\":1,\"enabled\":true}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "a2662a8508d0755a"
+            ]
+        ]
+    },
+    {
+        "id": "170e0dbf6fa5014f",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    }
+]
